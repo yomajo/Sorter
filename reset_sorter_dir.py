@@ -5,7 +5,7 @@ import stat
 import logging
 
 #GLOBAL VARIABLES
-src = os.path.join(os.getcwd(), 'mess backup', 'mess inside')
+src = os.path.join(os.getcwd(), 'easy mess backup', 'mess inside')
 dst = os.path.join(os.getcwd(), 'mess inside')
 
 #LOGGING SETTINGS:
@@ -18,11 +18,9 @@ def on_rm_error(func, path, exc_info):
     
 def reset_messy_dir():
     '''deletes working folder and recreates it from backup folder'''
-
     if os.path.exists(dst) == True:
         logging.info(f'path {dst} exists and is being removed')
         shutil.rmtree(dst, ignore_errors=False, onerror=on_rm_error)
-
     shutil.copytree(src, dst)
     logging.info(f'Directory copied from: {src}\nto: {dst}')
     logging.info('Finished')
