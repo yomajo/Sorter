@@ -21,7 +21,15 @@ def sort_this(path):
             for filename in filenames:
                 target_dir = mk_ext_based_dir(filename)
                 abs_src_path = os.path.join(curr_path, filename)
-                file_mover(abs_src_path, target_dir)
+                target_path = os.path.join(target_dir, filename)
+                # Duplicate filename prevention        
+                abs_src_path = handle_duplicates(abs_src_path, target_path)
+                #duplicate file might be handled (removed), therefore try.
+                try:
+                    file_mover(abs_src_path, target_dir)
+                except:
+                    logging.info(f'\nFailed to remove file: {abs_src_path} File was removed by handler (check logs) or permission issue')
+                continue
         if curr_path == abs_working_dir:
             logging.info(f'BREAKING LOOP of traversing through: {abs_working_dir}')
             break
@@ -50,20 +58,25 @@ def handle_duplicates(src_file, trg_file):
     '''removes src_file is it's identical to trg_file. Returns abs path to renamed src_file
     if files only have the same filename.
     src_file, trg_file: abs. paths to files of interest'''
-    # check if proviced arguments have the same filename and require handling in the first place
-    if os.path.basename(src_file) != os.path.basename(trg_file):
-        return
-    else:
-        if filecmp.cmp(src_file, trg_file, shallow=False) == True:
-            rm_f_abs_path = os.path.abspath(src_file)
-            try:
-                os.remove(rm_f_abs_path)
-                logging.info(f'Removing file: {rm_f_abs_path}')
-            except:
-                logging.info(f'Unable to delete duplicate file: {os.path.basename(src_file)} in\n{rm_f_abs_path}')
-        # Only filename is the same
+    # Two conditions to check if args require handling in the first place
+    # 1.check if proviced arguments exist
+    if os.path.exists(src_file) and os.path.exists(trg_file):
+        # 2.check if proviced arguments have the same filename
+        if os.path.basename(src_file) != os.path.basename(trg_file):
+            return src_file
         else:
-            return make_filename_unique(src_file)
+            if filecmp.cmp(src_file, trg_file, shallow=False) == True:
+                rm_f_abs_path = os.path.abspath(src_file)
+                try:
+                    os.remove(rm_f_abs_path)
+                    logging.info(f'Removing file: {rm_f_abs_path}')
+                except:
+                    logging.info(f'Unable to delete duplicate file: {os.path.basename(src_file)} in\n{rm_f_abs_path}')
+            # Only filename is the same
+            else:
+                return make_filename_unique(src_file)
+    else:
+        return src_file
 
 def make_filename_unique(path_to_file):
     '''Renames and returns abs path to renamed file basename added (1) at the end
@@ -81,14 +94,10 @@ def mk_ext_based_dir(filename):
     if os.path.exists(ext_dir) == False:
         os.mkdir(ext_dir)
         logging.info(f'Folder {ext} created in {ext_dir}')
-    else:
-        logging.info(f'Directory {ext_dir} already exists')
     return ext_dir
 
 
 if __name__=='__main__':
-    # reset_sorter_dir.reset_messy_dir()
+    reset_sorter_dir.reset_messy_dir()
     # sort_this(abs_working_dir)
-    handle_duplicates('mess inside/mess2/There are two of me.txt',
-    'C:/Coding/Sorter/mess inside/messy stuff1/There are two of me.txt')
     logging.info('----------- SORTER FINISHED RUNNING -----------')
