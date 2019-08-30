@@ -1,6 +1,7 @@
 import os, shutil
 import logging
 import reset_sorter_dir
+import filecmp
 
 # GLOBAL VARIABLES
 abs_working_dir = os.path.join(os.path.dirname(__file__), 'mess inside').replace("\\", "/")
@@ -55,9 +56,21 @@ def mk_ext_based_dir(filename):
     else:
         logging.info(f'Directory {ext_dir} already exists')
     return ext_dir
-    
+
+def handle_duplicates(file1, file2):
+    '''if some files are sorted already. Let file1 be from sorted dir.
+    1. compare file contents. If they are the same - delete duplicate file2
+    2. if contents differ, but name is the same - append a COPY to basename'''
+    os.path.
+    print('STARTING TO COMPARE NOW')
+    print(filecmp.cmp(file1, file2, shallow=False))
+    print('FINISHED COMPARING')
+
 
 if __name__=='__main__':
-    # reset_sorter_dir.reset_messy_dir()
-    sort_this(abs_working_dir)
+    reset_sorter_dir.reset_messy_dir()
+    # sort_this(abs_working_dir)
+    
+    # compare_files('mess inside/mess2/There are two of me.txt',
+    # 'C:/Coding/Sorter/mess inside/messy stuff1/There are two of me.txt')
     logging.info('----------- SORTER FINISHED RUNNING -----------')
