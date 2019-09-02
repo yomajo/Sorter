@@ -5,7 +5,7 @@ import stat
 import logging
 
 #GLOBAL VARIABLES
-src = os.path.join(os.getcwd(), 'easy mess backup', 'mess inside')
+src = os.path.join(os.getcwd(), 'mess backup', 'mess inside')
 dst = os.path.join(os.getcwd(), 'mess inside')
 
 #LOGGING SETTINGS:
