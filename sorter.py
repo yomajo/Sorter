@@ -1,16 +1,22 @@
 import os, shutil, stat
 import logging
-import reset_sorter_dir
 import filecmp
-
-# GLOBAL VARIABLES
-abs_working_dir = os.path.join(os.path.dirname(__file__), 'mess inside').replace("\\", "/")
-logging.info(f'Working directory is: {abs_working_dir}')
 
 # LOGGING SETTINGS:
 logging.basicConfig(level=logging.INFO)
 
 # FUNCTIONS:
+def get_abs_working_dir():
+    '''gets a path for this program to work on. Relies on user input. If input is invalid - returns a path of this file'''
+    working_dir = input(f'Please provide a valid path that you want to be sorted (If no path is provided, {os.path.basename(__file__)} path will be used): ')
+    if os.path.exists(working_dir):
+        logging.info(f'Provided path is a valid. Sorting is about to start in: {working_dir}\n')
+        return working_dir
+    else:
+        working_dir = os.path.dirname(__file__)
+        logging.info(f'Provided path is invalid. Defaulting to: {working_dir}\n')
+        return working_dir
+
 def sort_this(path):
     '''takes an arg of path to be re-organized by file extensions.
     Iterates through files, folders and subfolders, creating and deleting folders, moving files'''
@@ -19,17 +25,22 @@ def sort_this(path):
         # if folder contains files, iterate through files and sort given path
         if len(filenames)>0:
             for filename in filenames:
-                target_dir = mk_ext_based_dir(filename)
-                abs_src_path = os.path.join(curr_path, filename)
-                target_path = os.path.join(target_dir, filename)
-                # Duplicate filename prevention        
-                abs_src_path = handle_duplicates(abs_src_path, target_path)
-                #duplicate file might be handled (removed), therefore try.
-                try:
-                    file_mover(abs_src_path, target_dir)
-                except:
-                    logging.info(f'\nFailed to remove file: {abs_src_path} File was removed by handler (check logs) or permission issue')
-                continue
+                # Skipping sorting of this py file
+                if filename == os.path.basename(__file__):
+                    logging.info(f'\nSKIPPING sorting of this ({os.path.basename(__file__)}) file\n')
+                    continue
+                else:
+                    target_dir = mk_ext_based_dir(filename)
+                    abs_src_path = os.path.join(curr_path, filename)
+                    target_path = os.path.join(target_dir, filename)
+                    # Duplicate filename prevention        
+                    abs_src_path = handle_duplicates(abs_src_path, target_path)
+                    # Duplicate file might be handled (removed), therefore try.
+                    try:
+                        file_mover(abs_src_path, target_dir)
+                    except:
+                        logging.info(f'\nFailed to remove file: {abs_src_path} File was removed by handler (check logs) or permission issue')
+                    continue
         if curr_path == abs_working_dir:
             logging.info(f'BREAKING LOOP of traversing through: {abs_working_dir}')
             break
@@ -50,7 +61,7 @@ def file_mover(abs_src_path, abs_target_path):
     if os.path.exists(abs_target_path):
         try:
             shutil.move(abs_src_path, abs_target_path)
-            logging.info(f'file {f_basename} moved to: {abs_target_path}')
+            logging.info(f'file {f_basename} moved to: {abs_target_path}\n')
         except:
             logging.info(f'\nFor some reason file {f_basename} was not moved')
             try:
@@ -111,5 +122,6 @@ def mk_ext_based_dir(filename):
 
 
 if __name__=='__main__':
+    abs_working_dir = get_abs_working_dir()
     sort_this(abs_working_dir)
     logging.info('----------- SORTER FINISHED RUNNING -----------')
