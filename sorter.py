@@ -10,12 +10,24 @@ def get_abs_working_dir():
     '''gets a path for this program to work on. Relies on user input. If input is invalid - returns a path of this file'''
     working_dir = input(f'Please provide a valid path that you want to be sorted (If no path is provided, {os.path.basename(__file__)} path will be used): ')
     if os.path.exists(working_dir):
-        logging.info(f'Provided path is a valid. Sorting is about to start in: {working_dir}\n')
+        logging.info(f'Provided path {working_dir} is a valid\n')
         return working_dir
     else:
         working_dir = os.path.dirname(__file__)
         logging.info(f'Provided path is invalid. Defaulting to: {working_dir}\n')
         return working_dir
+
+def not_harmful_path(desired_path):
+    '''returns True if provided path name does not contain systemic directories like "windows" or "applications"
+    Potentially harmful to sort path elements are hardcoded inside the function'''
+    avoid_sorting = ['windows', 'program files', 'bin', 'lib', 'etc', 'applications']
+    for li in avoid_sorting:
+        if li in desired_path.lower():
+            logging.info(f'Desired path {desired_path.lower()} contains potentialy dangerous to sort directory "{li}"')
+            return False
+        else:
+            logging.info(f'Provided path {desired_path} is not harmful to execute sorter')
+            return True
 
 def sort_this(path):
     '''takes an arg of path to be re-organized by file extensions.
@@ -123,5 +135,9 @@ def mk_ext_based_dir(filename):
 
 if __name__=='__main__':
     abs_working_dir = get_abs_working_dir()
-    sort_this(abs_working_dir)
+    if not_harmful_path(abs_working_dir) == True:
+        logging.info('----------- SORTER STARTS -----------')
+        sort_this(abs_working_dir)
+    else:
+        logging.info(f'Unable to run {os.path.basename(__file__)} in this directory. Check list of avoided paths in not_harmful_path function')
     logging.info('----------- SORTER FINISHED RUNNING -----------')
