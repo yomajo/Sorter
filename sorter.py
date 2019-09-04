@@ -3,7 +3,7 @@ import logging
 import filecmp
 
 # LOGGING SETTINGS:
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, filename='sorter.log', filemode='w')
 
 # FUNCTIONS:
 def get_abs_working_dir():
@@ -14,7 +14,7 @@ def get_abs_working_dir():
         return working_dir
     else:
         working_dir = os.path.dirname(__file__)
-        logging.info(f'Provided path is invalid. Defaulting to: {working_dir}\n')
+        logging.warning(f'Provided path is invalid. Defaulting to: {working_dir}\n')
         return working_dir
 
 def not_harmful_path(desired_path):
@@ -23,7 +23,7 @@ def not_harmful_path(desired_path):
     avoid_sorting = ['windows', 'program files', 'bin', 'lib', 'etc', 'applications']
     for li in avoid_sorting:
         if li in desired_path.lower():
-            logging.info(f'Desired path {desired_path.lower()} contains potentialy dangerous to sort directory "{li}"')
+            logging.warning(f'Desired path {desired_path.lower()} contains potentialy dangerous to sort directory "{li}"')
             return False
         else:
             logging.info(f'Provided path {desired_path} is not harmful to execute sorter')
@@ -51,7 +51,7 @@ def sort_this(path):
                     try:
                         file_mover(abs_src_path, target_dir)
                     except:
-                        logging.info(f'\nFailed to remove file: {abs_src_path} File was removed by handler (check logs) or permission issue')
+                        logging.warning(f'\nFailed to remove file: {abs_src_path} File was removed by handler (check logs) or permission issue')
                     continue
         if curr_path == abs_working_dir:
             logging.info(f'BREAKING LOOP of traversing through: {abs_working_dir}')
@@ -65,7 +65,7 @@ def remove_empty_dirs(path):
         os.removedirs(path)
         logging.info(f'Path has been DELETED: {path}')
     except:
-        logging.info(f'Unable to delete dir: {path}')
+        logging.warning(f'Unable to delete dir: {path}')
 
 def file_mover(abs_src_path, abs_target_path):
     '''Tries to move file abs_src_path (abs path to file) to target path (second arg)'''
@@ -75,13 +75,13 @@ def file_mover(abs_src_path, abs_target_path):
             shutil.move(abs_src_path, abs_target_path)
             logging.info(f'file {f_basename} moved to: {abs_target_path}\n')
         except:
-            logging.info(f'\nFor some reason file {f_basename} was not moved')
+            logging.warning(f'\nFor some reason file {f_basename} was not moved')
             try:
-                logging.info(f'Changing file {f_basename} permissions')
+                logging.warning(f'Changing file {f_basename} permissions')
                 os.chmod(abs_src_path, stat.S_IRWXU| stat.S_IRWXG| stat.S_IRWXO)
                 shutil.move(abs_src_path, abs_target_path)
             except:
-                logging.info(f'\nGave up on clean shutil.move({abs_src_path}, {abs_target_path})')
+                logging.error(f'\nGave up on clean shutil.move({abs_src_path}, {abs_target_path})')
 
 def handle_duplicates(src_file, trg_file):
     '''removes src_file is it's identical to trg_file. Returns abs path to renamed src_file
@@ -100,14 +100,14 @@ def handle_duplicates(src_file, trg_file):
                     os.remove(rm_f_abs_path)
                     logging.info(f'Removing file: {rm_f_abs_path}')
                 except:
-                    logging.info(f'Unable to delete duplicate file: {os.path.basename(src_file)} in\n{rm_f_abs_path}')
-                    logging.info(f'Setting max permissions on file {os.path.basename(src_file)}')
+                    logging.error(f'Unable to delete duplicate file: {os.path.basename(src_file)} in\n{rm_f_abs_path}')
+                    logging.warning(f'Setting max permissions on file {os.path.basename(src_file)}')
                     os.chmod(rm_f_abs_path, stat.S_IRWXU| stat.S_IRWXG| stat.S_IRWXO)
                     try: 
                         os.remove(rm_f_abs_path)
-                        logging.info(f'Ultimately file {os.path.basename(src_file)} was deleted successfully')
+                        logging.warning(f'Ultimately file {os.path.basename(src_file)} was deleted successfully')
                     except:
-                        logging.info(f'Gave up on removing file {os.path.basename(src_file)}')
+                        logging.error(f'Gave up on removing file {os.path.basename(src_file)}')
             # Only filename is the same
             else:
                 return make_filename_unique(src_file)
@@ -132,12 +132,26 @@ def mk_ext_based_dir(filename):
         logging.info(f'Folder {ext} created in {ext_dir}')
     return ext_dir
 
+def display_folder_tree(tree_path):
+    '''displays folder/files tree structure starting at arg tree_path'''
+    for root, _, files in os.walk(tree_path):
+        level = root.replace(tree_path, '').count(os.sep)
+        indent = ' ' * 4 * (level)
+        logging.info(f'{indent}{os.path.basename(root)}/')
+        subindent = ' ' * 4 * (level + 1)
+        for f in files:
+            logging.info(f'{subindent}{f}')
+
 
 if __name__=='__main__':
     abs_working_dir = get_abs_working_dir()
     if not_harmful_path(abs_working_dir) == True:
-        logging.info('----------- SORTER STARTS -----------')
+        logging.info(f'Displaying folder tree structure {abs_working_dir} BEFORE sorting\n')
+        display_folder_tree(abs_working_dir)
+        logging.info('\n----------- SORTER STARTS -----------\n')
         sort_this(abs_working_dir)
+        logging.info(f'Displaying folder tree structure {abs_working_dir} AFTER sorting\n')
+        display_folder_tree(abs_working_dir)
     else:
-        logging.info(f'Unable to run {os.path.basename(__file__)} in this directory. Check list of avoided paths in not_harmful_path function')
-    logging.info('----------- SORTER FINISHED RUNNING -----------')
+        logging.critical(f'Unable to run {os.path.basename(__file__)} in this directory. Check list of avoided paths in not_harmful_path function')
+    logging.info('\n----------- SORTER FINISHED RUNNING -----------')

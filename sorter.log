@@ -1,0 +1,256 @@
+INFO:root:Provided path C:\Coding\Sorter\mess inside is a valid
+
+INFO:root:Provided path C:\Coding\Sorter\mess inside is not harmful to execute sorter
+INFO:root:Displaying folder tree structure C:\Coding\Sorter\mess inside BEFORE sorting
+
+INFO:root:mess inside/
+INFO:root:    21935449_10212344044549900_706476908_n.jpeg
+INFO:root:    CFX12_D_Profile BCs.ppt
+INFO:root:    CFX12_E_Licensing.ppt
+INFO:root:    d6b2e5a9.jpeg
+INFO:root:    googlelogo_color_272x92dp.png
+INFO:root:    hidden ready-only excel file.xlsx
+INFO:root:    savegame001.mps
+INFO:root:    sunflowa field.jpg
+INFO:root:    tumblr_nvi6kitR2m1tn5lt4o1_540.gif
+INFO:root:    just files/
+INFO:root:        ..tricker.name.zip..xlsx.jpg.pptx...docx
+INFO:root:        CFX12_A_Scripting.ppt
+INFO:root:        CFX12_B_Turbo.ppt
+INFO:root:        CFX12_C_Radiation.ppt
+INFO:root:        Deep conversation is like.jpg
+INFO:root:        Hello World messaging macro.xlsm
+INFO:root:        list of things.gif
+INFO:root:        savegame003.mps
+INFO:root:        sheer force of anger.jpg
+INFO:root:    mess2/
+INFO:root:        IMG_1872.JPG
+INFO:root:        textinside.txt
+INFO:root:        There are two of me.txt
+INFO:root:        child dir2/
+INFO:root:            CFX12_11_CEL_printing.ppt
+INFO:root:            CFX12_12_MovingZones.ppt
+INFO:root:            failed drum line.mp3
+INFO:root:            how did I get here.docx
+INFO:root:            killer bean intro.mp3
+INFO:root:            Screenshot_2018-05-17-20-32-12.png
+INFO:root:        test1/
+INFO:root:            another word file here.docx
+INFO:root:            CFX12_13_CCL_OutFile.ppt
+INFO:root:            sa-ufiles.dat
+INFO:root:            same name different content.txt
+INFO:root:            Sunset above the clouds.jpg
+INFO:root:    messy stuff1/
+INFO:root:        Christman.jpg
+INFO:root:        esme flowers r-only.jpg
+INFO:root:        Futura  NEOTOKYO2099.gif
+INFO:root:        sheet.xlsx
+INFO:root:        There are two of me.txt
+INFO:root:    random folder/
+INFO:root:        cmd text export.txt
+INFO:root:        Control of internet speech.jpeg
+INFO:root:        random_folder.txt
+INFO:root:        Rocco - Everybody.mp3
+INFO:root:        sa-utrax.dat
+INFO:root:        same name different content.txt
+INFO:root:        savegame002.mps
+INFO:root:        part of presentations/
+INFO:root:            CFX12_14_AdvancedPhysics.ppt
+INFO:root:            CFX12_15_ReviewDay2.ppt
+INFO:root:            IMG_1867.JPG
+INFO:root:            Screenshot_2018-12-22-02-52-58.png
+INFO:root:
+----------- SORTER STARTS -----------
+
+INFO:root:CURRENTLY IN PATH: C:\Coding\Sorter\mess inside\just files
+INFO:root:Folder DOCX created in C:\Coding\Sorter\mess inside\DOCX
+INFO:root:file ..tricker.name.zip..xlsx.jpg.pptx...docx moved to: C:\Coding\Sorter\mess inside\DOCX
+
+INFO:root:Folder PPT created in C:\Coding\Sorter\mess inside\PPT
+INFO:root:file CFX12_A_Scripting.ppt moved to: C:\Coding\Sorter\mess inside\PPT
+
+INFO:root:file CFX12_B_Turbo.ppt moved to: C:\Coding\Sorter\mess inside\PPT
+
+INFO:root:file CFX12_C_Radiation.ppt moved to: C:\Coding\Sorter\mess inside\PPT
+
+INFO:root:Folder JPG created in C:\Coding\Sorter\mess inside\JPG
+INFO:root:file Deep conversation is like.jpg moved to: C:\Coding\Sorter\mess inside\JPG
+
+INFO:root:Folder XLSM created in C:\Coding\Sorter\mess inside\XLSM
+INFO:root:file Hello World messaging macro.xlsm moved to: C:\Coding\Sorter\mess inside\XLSM
+
+INFO:root:Folder GIF created in C:\Coding\Sorter\mess inside\GIF
+INFO:root:file list of things.gif moved to: C:\Coding\Sorter\mess inside\GIF
+
+INFO:root:Folder MPS created in C:\Coding\Sorter\mess inside\MPS
+INFO:root:file savegame003.mps moved to: C:\Coding\Sorter\mess inside\MPS
+
+INFO:root:file sheer force of anger.jpg moved to: C:\Coding\Sorter\mess inside\JPG
+
+INFO:root:Path has been DELETED: C:\Coding\Sorter\mess inside\just files
+INFO:root:CURRENTLY IN PATH: C:\Coding\Sorter\mess inside\mess2\child dir2
+INFO:root:file CFX12_11_CEL_printing.ppt moved to: C:\Coding\Sorter\mess inside\PPT
+
+INFO:root:file CFX12_12_MovingZones.ppt moved to: C:\Coding\Sorter\mess inside\PPT
+
+INFO:root:Folder MP3 created in C:\Coding\Sorter\mess inside\MP3
+INFO:root:file failed drum line.mp3 moved to: C:\Coding\Sorter\mess inside\MP3
+
+INFO:root:file how did I get here.docx moved to: C:\Coding\Sorter\mess inside\DOCX
+
+INFO:root:file killer bean intro.mp3 moved to: C:\Coding\Sorter\mess inside\MP3
+
+INFO:root:Folder PNG created in C:\Coding\Sorter\mess inside\PNG
+INFO:root:file Screenshot_2018-05-17-20-32-12.png moved to: C:\Coding\Sorter\mess inside\PNG
+
+INFO:root:Path has been DELETED: C:\Coding\Sorter\mess inside\mess2\child dir2
+INFO:root:CURRENTLY IN PATH: C:\Coding\Sorter\mess inside\mess2\test1
+INFO:root:file another word file here.docx moved to: C:\Coding\Sorter\mess inside\DOCX
+
+INFO:root:file CFX12_13_CCL_OutFile.ppt moved to: C:\Coding\Sorter\mess inside\PPT
+
+INFO:root:Folder DAT created in C:\Coding\Sorter\mess inside\DAT
+INFO:root:file sa-ufiles.dat moved to: C:\Coding\Sorter\mess inside\DAT
+
+INFO:root:Folder TXT created in C:\Coding\Sorter\mess inside\TXT
+INFO:root:file same name different content.txt moved to: C:\Coding\Sorter\mess inside\TXT
+
+INFO:root:file Sunset above the clouds.jpg moved to: C:\Coding\Sorter\mess inside\JPG
+
+INFO:root:Path has been DELETED: C:\Coding\Sorter\mess inside\mess2\test1
+INFO:root:CURRENTLY IN PATH: C:\Coding\Sorter\mess inside\mess2
+INFO:root:file IMG_1872.JPG moved to: C:\Coding\Sorter\mess inside\JPG
+
+INFO:root:file textinside.txt moved to: C:\Coding\Sorter\mess inside\TXT
+
+INFO:root:file There are two of me.txt moved to: C:\Coding\Sorter\mess inside\TXT
+
+INFO:root:Path has been DELETED: C:\Coding\Sorter\mess inside\mess2
+INFO:root:CURRENTLY IN PATH: C:\Coding\Sorter\mess inside\messy stuff1
+INFO:root:file Christman.jpg moved to: C:\Coding\Sorter\mess inside\JPG
+
+INFO:root:file esme flowers r-only.jpg moved to: C:\Coding\Sorter\mess inside\JPG
+
+INFO:root:file Futura  NEOTOKYO2099.gif moved to: C:\Coding\Sorter\mess inside\GIF
+
+INFO:root:Folder XLSX created in C:\Coding\Sorter\mess inside\XLSX
+INFO:root:file sheet.xlsx moved to: C:\Coding\Sorter\mess inside\XLSX
+
+ERROR:root:Unable to delete duplicate file: There are two of me.txt in
+C:\Coding\Sorter\mess inside\messy stuff1\There are two of me.txt
+WARNING:root:Setting max permissions on file There are two of me.txt
+WARNING:root:Ultimately file There are two of me.txt was deleted successfully
+WARNING:root:
+Failed to remove file: None File was removed by handler (check logs) or permission issue
+INFO:root:Path has been DELETED: C:\Coding\Sorter\mess inside\messy stuff1
+INFO:root:CURRENTLY IN PATH: C:\Coding\Sorter\mess inside\random folder\part of presentations
+INFO:root:file CFX12_14_AdvancedPhysics.ppt moved to: C:\Coding\Sorter\mess inside\PPT
+
+INFO:root:file CFX12_15_ReviewDay2.ppt moved to: C:\Coding\Sorter\mess inside\PPT
+
+INFO:root:file IMG_1867.JPG moved to: C:\Coding\Sorter\mess inside\JPG
+
+INFO:root:file Screenshot_2018-12-22-02-52-58.png moved to: C:\Coding\Sorter\mess inside\PNG
+
+INFO:root:Path has been DELETED: C:\Coding\Sorter\mess inside\random folder\part of presentations
+INFO:root:CURRENTLY IN PATH: C:\Coding\Sorter\mess inside\random folder
+INFO:root:file cmd text export.txt moved to: C:\Coding\Sorter\mess inside\TXT
+
+INFO:root:Folder JPEG created in C:\Coding\Sorter\mess inside\JPEG
+INFO:root:file Control of internet speech.jpeg moved to: C:\Coding\Sorter\mess inside\JPEG
+
+INFO:root:file random_folder.txt moved to: C:\Coding\Sorter\mess inside\TXT
+
+INFO:root:file Rocco - Everybody.mp3 moved to: C:\Coding\Sorter\mess inside\MP3
+
+INFO:root:file sa-utrax.dat moved to: C:\Coding\Sorter\mess inside\DAT
+
+INFO:root:Renaming file: same name different content.txt found in C:\Coding\Sorter\mess inside\random folder to: same name different content(1).txt
+INFO:root:file same name different content(1).txt moved to: C:\Coding\Sorter\mess inside\TXT
+
+INFO:root:file savegame002.mps moved to: C:\Coding\Sorter\mess inside\MPS
+
+INFO:root:Path has been DELETED: C:\Coding\Sorter\mess inside\random folder
+INFO:root:CURRENTLY IN PATH: C:\Coding\Sorter\mess inside
+INFO:root:file 21935449_10212344044549900_706476908_n.jpeg moved to: C:\Coding\Sorter\mess inside\JPEG
+
+INFO:root:file CFX12_D_Profile BCs.ppt moved to: C:\Coding\Sorter\mess inside\PPT
+
+INFO:root:file CFX12_E_Licensing.ppt moved to: C:\Coding\Sorter\mess inside\PPT
+
+INFO:root:file d6b2e5a9.jpeg moved to: C:\Coding\Sorter\mess inside\JPEG
+
+INFO:root:file googlelogo_color_272x92dp.png moved to: C:\Coding\Sorter\mess inside\PNG
+
+INFO:root:file hidden ready-only excel file.xlsx moved to: C:\Coding\Sorter\mess inside\XLSX
+
+INFO:root:file savegame001.mps moved to: C:\Coding\Sorter\mess inside\MPS
+
+INFO:root:file sunflowa field.jpg moved to: C:\Coding\Sorter\mess inside\JPG
+
+INFO:root:file tumblr_nvi6kitR2m1tn5lt4o1_540.gif moved to: C:\Coding\Sorter\mess inside\GIF
+
+INFO:root:BREAKING LOOP of traversing through: C:\Coding\Sorter\mess inside
+INFO:root:Displaying folder tree structure C:\Coding\Sorter\mess inside AFTER sorting
+
+INFO:root:mess inside/
+INFO:root:    DAT/
+INFO:root:        sa-ufiles.dat
+INFO:root:        sa-utrax.dat
+INFO:root:    DOCX/
+INFO:root:        ..tricker.name.zip..xlsx.jpg.pptx...docx
+INFO:root:        another word file here.docx
+INFO:root:        how did I get here.docx
+INFO:root:    GIF/
+INFO:root:        Futura  NEOTOKYO2099.gif
+INFO:root:        list of things.gif
+INFO:root:        tumblr_nvi6kitR2m1tn5lt4o1_540.gif
+INFO:root:    JPEG/
+INFO:root:        21935449_10212344044549900_706476908_n.jpeg
+INFO:root:        Control of internet speech.jpeg
+INFO:root:        d6b2e5a9.jpeg
+INFO:root:    JPG/
+INFO:root:        Christman.jpg
+INFO:root:        Deep conversation is like.jpg
+INFO:root:        esme flowers r-only.jpg
+INFO:root:        IMG_1867.JPG
+INFO:root:        IMG_1872.JPG
+INFO:root:        sheer force of anger.jpg
+INFO:root:        sunflowa field.jpg
+INFO:root:        Sunset above the clouds.jpg
+INFO:root:    MP3/
+INFO:root:        failed drum line.mp3
+INFO:root:        killer bean intro.mp3
+INFO:root:        Rocco - Everybody.mp3
+INFO:root:    MPS/
+INFO:root:        savegame001.mps
+INFO:root:        savegame002.mps
+INFO:root:        savegame003.mps
+INFO:root:    PNG/
+INFO:root:        googlelogo_color_272x92dp.png
+INFO:root:        Screenshot_2018-05-17-20-32-12.png
+INFO:root:        Screenshot_2018-12-22-02-52-58.png
+INFO:root:    PPT/
+INFO:root:        CFX12_11_CEL_printing.ppt
+INFO:root:        CFX12_12_MovingZones.ppt
+INFO:root:        CFX12_13_CCL_OutFile.ppt
+INFO:root:        CFX12_14_AdvancedPhysics.ppt
+INFO:root:        CFX12_15_ReviewDay2.ppt
+INFO:root:        CFX12_A_Scripting.ppt
+INFO:root:        CFX12_B_Turbo.ppt
+INFO:root:        CFX12_C_Radiation.ppt
+INFO:root:        CFX12_D_Profile BCs.ppt
+INFO:root:        CFX12_E_Licensing.ppt
+INFO:root:    TXT/
+INFO:root:        cmd text export.txt
+INFO:root:        random_folder.txt
+INFO:root:        same name different content(1).txt
+INFO:root:        same name different content.txt
+INFO:root:        textinside.txt
+INFO:root:        There are two of me.txt
+INFO:root:    XLSM/
+INFO:root:        Hello World messaging macro.xlsm
+INFO:root:    XLSX/
+INFO:root:        hidden ready-only excel file.xlsx
+INFO:root:        sheet.xlsx
+INFO:root:----------- SORTER FINISHED RUNNING -----------
