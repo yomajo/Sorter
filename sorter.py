@@ -23,7 +23,7 @@ def get_abs_working_dir():
         logging.info(f'Provided path {working_dir} is a valid\n')
         return working_dir
     else:
-        working_dir = os.path.dirname(__file__)
+        working_dir = os.path.dirname(os.path.abspath(__file__))
         logging.warning(f'Provided path is invalid. Defaulting to: {working_dir}\n')
         return working_dir
 
