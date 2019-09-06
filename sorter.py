@@ -1,9 +1,19 @@
 import os, shutil, stat
 import logging
 import filecmp
+import argparse
+
+# ARG PARSER SETTINGS:
+parser = argparse.ArgumentParser(description='Script takes command line argument to determine logging option. It either logs to a file (option: log_file) or (by default) inside the terminal (option: terminal)')
+parser.add_argument('logging_option', type=str, help='Select a logging option to be used by sorter',
+                    nargs='?', default='terminal', choices=['log_file', 'terminal'])
+args = parser.parse_args() 
 
 # LOGGING SETTINGS:
-logging.basicConfig(level=logging.INFO, filename='sorter.log', filemode='w')
+if args.logging_option == 'terminal':
+    logging.basicConfig(level=logging.INFO)
+else:
+    logging.basicConfig(level=logging.INFO, filename='sorter.log', filemode='w')
 
 # FUNCTIONS:
 def get_abs_working_dir():

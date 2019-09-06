@@ -253,4 +253,5 @@ INFO:root:        Hello World messaging macro.xlsm
 INFO:root:    XLSX/
 INFO:root:        hidden ready-only excel file.xlsx
 INFO:root:        sheet.xlsx
-INFO:root:----------- SORTER FINISHED RUNNING -----------
+INFO:root:
+----------- SORTER FINISHED RUNNING -----------
